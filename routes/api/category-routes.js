@@ -3,7 +3,13 @@ const { Category, Product } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const categoryInfo = await Category.findAll();
+    const categoryInfo = await Category.findAll({
+      include: [
+        {
+model: Product,
+        }
+      ]
+    });
 
     res.status(200).json(categoryInfo);
   } catch (err) {
@@ -27,6 +33,7 @@ res.status(200).json(categoryInfo);
 } catch (err) {
 res.status(500).json(err);
 }
+
 });
 
 router.post('/', async (req, res) => {
@@ -49,7 +56,7 @@ router.put('/:id', async (req, res) => {
     });
 
     if (!categoryInfo[0]) {
-      res.status(404).json({ message: 'No category with this id!' });
+      res.status(404).json({ message: 'No category with this id' });
       return;
     }
 
