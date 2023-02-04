@@ -53,7 +53,6 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  // update a tag's name by its `id` value
   try {
     const tagInfo = await Tag.update(req.body, {
       where: {
@@ -75,7 +74,7 @@ router.delete('/:id', async (req, res) => {
     const tagInfo = await Tag.destroy({
       where: { id: req.params.id }
     });
-    if (!tagData) {
+    if (!tagInfo) {
       res.status(404).json({ message: 'No tag with this id'});
       return;
     }
