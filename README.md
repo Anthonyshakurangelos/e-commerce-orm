@@ -26,7 +26,9 @@ N/A
 *npm i express
 
 # Usage
-
+* Here is a video demonstrating how to DELETE, PUT, GET and POST in insomnia. 
+* Make sure your database was sourced(source db/schema.sql) in mysql, your seeds files were seeded to the database(node seeds/index.js) in the command line and then follow along in this video!
+[https://watch.screencastify.com/v/StScjESmdtkit8Qw80AY]
 # Credits
 N/A
 
